@@ -30,6 +30,10 @@ describe StringCalculator do
       it 'raises an error when negative numbers are included' do
         expect { StringCalculator.add("1,-2,3,-4") }.to raise_error("negative numbers not allowed -2,-4")
       end
+
+      it 'raises an error when \n missing in number when different delimiter provided' do
+        expect { StringCalculator.add("//;1;2") }.to raise_error("Incorrect string format detected.")
+      end
       
     end
   end
